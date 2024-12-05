@@ -1,0 +1,121 @@
+{
+  "name": "Trigger a build in Travis CI when code changes are push to a GitHub repo",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "owner": "n8n-io",
+        "repository": "n8n",
+        "events": [
+          "push",
+          "pull_request"
+        ],
+        "options": {}
+      },
+      "name": "Github Trigger",
+      "type": "n8n-nodes-base.githubTrigger",
+      "position": [
+        380,
+        240
+      ],
+      "webhookId": "01518289-14b1-4a45-9d33-39be08f7a544",
+      "typeVersion": 1,
+      "id": "c4081113-0cc4-49d7-9d2e-697299ed7790"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"headers\"][\"x-github-event\"]}}",
+              "value2": "push"
+            },
+            {
+              "value1": "={{$json[\"body\"][\"action\"]}}",
+              "value2": "opened"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        580,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "0f446c66-9846-4aa8-91c4-620fdded84c9"
+    },
+    {
+      "parameters": {
+        "operation": "trigger",
+        "slug": "={{$json[\"body\"][\"repository\"][\"full_name\"]}}",
+        "branch": "=",
+        "additionalFields": {}
+      },
+      "name": "TravisCI",
+      "type": "n8n-nodes-base.travisCi",
+      "position": [
+        780,
+        140
+      ],
+      "typeVersion": 1,
+      "id": "0ad78596-08b5-4201-b5d9-090ec8d03cda"
+    },
+    {
+      "parameters": {},
+      "name": "NoOp",
+      "type": "n8n-nodes-base.noOp",
+      "position": [
+        780,
+        340
+      ],
+      "typeVersion": 1,
+      "id": "25b55e1f-a347-4d11-afab-ff0be0c96750"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "TravisCI",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoOp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Github Trigger": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "e7a2a5c3-8195-4eeb-84c1-66b06867d78a",
+  "meta": {
+    "templateId": "1132",
+    "instanceId": "a331b7a5fcb525a5be93daea1d73a41ac94a464151813d5cf89600fbe46df1f4"
+  },
+  "id": "KTIWUxJOhHo9iZZH",
+  "tags": []
+}
