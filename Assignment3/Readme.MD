@@ -1,3 +1,6 @@
+
+Video Link : https://drive.google.com/drive/folders/1FBa9UrAMEfdtviSSChKySCeVAbbb6xw-?usp=sharing
+
 part A : https://colab.research.google.com/drive/1h5iOKiiiDyWETXRAHvLLHw-7DED7kvV_?usp=sharing
 
 part B : https://colab.research.google.com/drive/1YgkUz8g2q_E9nLHrmh8uVDid8DM2iAOc?usp=sharing
