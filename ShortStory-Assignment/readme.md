@@ -1,5 +1,7 @@
 Medium Article Link - https://medium.com/@dhshah1112/a-market-based-approach-to-social-cost-in-multi-agent-reinforcement-learning-61e0f720be05
 
+Video Link : https://drive.google.com/drive/folders/1FBa9UrAMEfdtviSSChKySCeVAbbb6xw-?usp=sharing
+
 # A Market-Based Approach to Social Cost in Multi-Agent Reinforcement Learning
 
 This repository contains a Medium article and a LaTeX Beamer presentation exploring the application of market-based mechanisms, specifically Vickrey-Clarke-Groves (VCG) auctions, to address social costs in multi-agent reinforcement learning (MARL) systems. The work is based on the survey paper "[The Problem of Social Cost in Multi-Agent General Reinforcement Learning: Survey and Synthesis]" by Ng, Yang-Zhao, and Cadogan-Cowper.
